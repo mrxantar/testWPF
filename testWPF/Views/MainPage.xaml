@@ -6,10 +6,32 @@
       xmlns:local="clr-namespace:testWPF.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      Background="#121212"
       Title="MainPage">
 
     <Grid>
-        <Button Content="Тест" HorizontalAlignment="Left" Margin="379,225,0,0" VerticalAlignment="Top"/>
+        <Button Click="GoToPage2_Click" Height="70" Foreground="Black"
+                FontSize="16"
+                Padding="10" Margin="283,282,283,98">
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.26">
+                    <GradientStop Color="White" Offset="0" />
+                    <GradientStop Color="White" Offset="0.5" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="40"
+                            Padding="{TemplateBinding Padding}"
+                            BorderBrush="White" BorderThickness="2" Margin="0,0,-19,0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            <TextBlock Text="Нажмите на экран,&#10;чтоб продолжить" TextAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#Montserrat"/>
+        </Button>
 
     </Grid>
 </Page>
