@@ -16,18 +16,18 @@ using System.Windows.Shapes;
 namespace testWPF.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Form.xaml
+    /// Логика взаимодействия для ConfirmationPage.xaml
     /// </summary>
-    public partial class Form : Page
+    public partial class ConfirmationPage : Page
     {
-        public Form()
+        public ConfirmationPage()
         {
             InitializeComponent();
         }
 
-        private void ConfirmClick(object sender, RoutedEventArgs e)
+        private void ConfirmCode(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new ConfirmationPage());
+            NavigationService?.Navigate(new FinalPage());
         }
     }
 }

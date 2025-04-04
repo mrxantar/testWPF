@@ -9,6 +9,167 @@
       Title="Form">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/Pics/iwt_op_form.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
+            <Image Source="/Logos/iwt_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
+            <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
+                <Button Width="200" Height="50" Content="Просмотреть PDF-файл"
+                        Foreground="#FBB911"
+                        BorderBrush="#FBB911"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        FontSize="12"
+                        FontFamily="/Fonts/#Montserrat"
+                        FontWeight="SemiBold"
+                        Grid.Row="2"
+                        Cursor="Hand"/>
+            </Viewbox>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/Pics/red_op_form.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
+            <Image Source="/Logos/red_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
+            <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
+                <Button Width="200" Height="50" Content="Просмотреть PDF-файл"
+                        Foreground="#FBB911"
+                        BorderBrush="#FBB911"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        FontSize="12"
+                        FontFamily="/Fonts/#Montserrat"
+                        FontWeight="SemiBold"
+                        Grid.Row="2"
+                        Cursor="Hand"/>
+            </Viewbox>
+
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition Height="0.25*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Viewbox Grid.Row="0">
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="#FFF3F3F3"
+                               FontFamily="/Fonts/#Montserrat"
+                               FontStyle="Italic"
+                               FontWeight="Bold"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Margin="10,10,10,10">
+                        <Run Text="ХОТИТЕ ПОСМОТРЕТЬ"/>
+                        <LineBreak/>
+                        <Run Text="КАТАЛОГ ПРОДУКЦИИ?"/>
+                    </TextBlock>
+                </Viewbox>
+                <Viewbox Grid.Row="1">
+                    <TextBlock HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Foreground="#FF7D7D7D"
+                               FontFamily="/Fonts/#Montserrat"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Margin="20,0,20,20">
+                        <Run Text="Заполните форму и мы вышлем вам"/>
+                        <LineBreak/>
+                        <Run Text="его на электронную почту"/>
+                    </TextBlock>
+                </Viewbox>
+
+                <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="2" Width="Auto">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Width="Auto">
+                        <TextBox Height="40" Text="Фамилия, имя, отчество" 
+                                 Foreground="#7FFFFFFF" FontSize="16" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
+                                 BorderBrush="#7FFFFFFF" BorderThickness="0,0,0,2"
+                                 Padding="10"
+                                 Margin="0, 0, 0, 30">
+                            <TextBox.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
+                                    <GradientStop Color="#7FFFFFFF" Offset="0"/>
+                                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <TextBox Height="40" Text="Ваш телефон"
+                                 Foreground="#7FFFFFFF" FontSize="16" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
+                                 BorderBrush="#7FFFFFFF" BorderThickness="0,0,0,2"
+                                 Padding="10"
+                                 Margin="0, 0, 0, 30">
+                            <TextBox.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
+                                    <GradientStop Color="#7FFFFFFF" Offset="0"/>
+                                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <TextBox Height="40" Text="Email"
+                                 Foreground="#7FFFFFFF" FontSize="16" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
+                                 BorderBrush="#7FFFFFFF" BorderThickness="0,0,0,2"
+                                 Padding="10"
+                                 Margin="0, 0, 0, 30">
+                            <TextBox.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
+                                    <GradientStop Color="#7FFFFFFF" Offset="0"/>
+                                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBox.Background>
+                        </TextBox>
+
+                        <TextBlock HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Foreground="#7FFFFFFF"
+                                   FontFamily="/Fonts/#Montserrat"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Left"
+                                   Margin="0, 0, 0, 30"
+                                   FontStyle="Italic">
+                            <Run Text="Я даю согласие на обработку персональных данных и соглашаюсь с " FontSize="7"/>
+                            <LineBreak/>
+                            <Run Text="политикой конфиденциальности." FontSize="7"/>
+                        </TextBlock>
+
+                        <Button Padding="45, 20, 45, 20"
+                                Background="#FBB911"
+                                Foreground="#141310"
+                                FontFamily="/Fonts/#Montserrat"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Cursor="Hand"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0, 0, 0, 20" Click="ConfirmClick">
+                            Подтвердить данные
+                        </Button>
+                    </StackPanel>
+                </Viewbox>
+            </Grid>
+        </Grid>
     </Grid>
+    
 </Page>

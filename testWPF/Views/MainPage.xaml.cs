@@ -24,5 +24,10 @@ namespace testWPF.Views
         {
             InitializeComponent();
         }
+
+        private void ContinueClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new Form());
+        }
     }
 }

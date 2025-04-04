@@ -11,11 +11,40 @@
   <ItemGroup>
     <None Remove="Fonts\Montserrat-Italic-VariableFont_wght.ttf" />
     <None Remove="Fonts\Montserrat-VariableFont_wght.ttf" />
+    <None Remove="Logos\iwt_small.png" />
+    <None Remove="Logos\iwt_vector.svg" />
+    <None Remove="Logos\red_small.png" />
+    <None Remove="Logos\red_vector.svg" />
+    <None Remove="Pics\iwt_op_confirm.png" />
+    <None Remove="Pics\iwt_op_final.png" />
+    <None Remove="Pics\iwt_op_form.png" />
+    <None Remove="Pics\iwt_red_form.png" />
+    <None Remove="Pics\red_op_confirm.png" />
+    <None Remove="Pics\red_op_final.png" />
+    <None Remove="Pics\red_op_form.png" />
+    <None Remove="QRs\qr_iwt.png" />
+    <None Remove="QRs\qr_red.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpVectors" Version="1.8.4.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Fonts\Montserrat-Italic-VariableFont_wght.ttf" />
     <Resource Include="Fonts\Montserrat-VariableFont_wght.ttf" />
+    <Resource Include="Logos\iwt_small.png" />
+    <Resource Include="Logos\iwt_vector.svg" />
+    <Resource Include="Logos\red_small.png" />
+    <Resource Include="Logos\red_vector.svg" />
+    <Resource Include="Pics\iwt_op_confirm.png" />
+    <Resource Include="Pics\iwt_op_final.png" />
+    <Resource Include="Pics\iwt_op_form.png" />
+    <Resource Include="Pics\red_op_confirm.png" />
+    <Resource Include="Pics\red_op_final.png" />
+    <Resource Include="Pics\red_op_form.png" />
+    <Resource Include="QRs\qr_iwt.png" />
+    <Resource Include="QRs\qr_red.png" />
   </ItemGroup>
 
 </Project>

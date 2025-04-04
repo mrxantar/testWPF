@@ -4,34 +4,100 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:testWPF.Views"
+      xmlns:svg="http://sharpvectors.codeplex.com/runtime/"
+      xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Background="#121212"
       Title="MainPage">
 
     <Grid>
-        <Button Click="GoToPage2_Click" Height="70" Foreground="Black"
-                FontSize="16"
-                Padding="10" Margin="283,282,283,98">
-            <Button.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.26">
-                    <GradientStop Color="White" Offset="0" />
-                    <GradientStop Color="White" Offset="0.5" />
-                    <GradientStop Color="White" Offset="1" />
-                </LinearGradientBrush>
-            </Button.Background>
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}"
-                            CornerRadius="40"
-                            Padding="{TemplateBinding Padding}"
-                            BorderBrush="White" BorderThickness="2" Margin="0,0,-19,0">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-            <TextBlock Text="Нажмите на экран,&#10;чтоб продолжить" TextAlignment="Center" Foreground="LightGray" FontFamily="/Fonts/#Montserrat"/>
-        </Button>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <svgc:SvgViewbox Source="Logos/iwt_vector.svg"
+                         Stretch="Fill"
+                         Margin="0, 50, 75, 50"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Left"/>
 
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="0.3*" />
+            </Grid.RowDefinitions>
+
+            <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30">
+                <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#FFF3F3F3"
+                       FontFamily="/Fonts/#Montserrat"
+                       FontStyle="Italic"
+                       FontWeight="Bold"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       FontSize="36">
+                <Run Text="ИННОВАЦИОННЫЕ" />
+                <LineBreak/>
+                <Run Text="ОРУЖЕЙНЫЕ" />
+                <LineBreak/>
+                <Run Text="ТЕХНОЛОГИИ" />
+                </TextBlock>
+            </Viewbox>
+
+            <Viewbox Grid.Column="0" Grid.Row="2" Margin="0 0 0 25">
+                <Button Width="200" Height="50" Click="ContinueClick">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" BorderBrush="White" BorderThickness="0.5" CornerRadius="25">
+                                <TextBlock HorizontalAlignment="Center" 
+                                               VerticalAlignment="Center"
+                                               TextWrapping="Wrap" 
+                                               TextAlignment="Center" 
+                                               Foreground="LightGray">
+                                        <Run Text="Нажмите на экран," FontFamily="/Fonts/#Montserrat"/>
+                                        <LineBreak />
+                                        <Run Text="чтобы продолжить" FontFamily="/Fonts/#Montserrat"/>
+                                        </TextBlock>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
+                            <GradientStop Color="White" Offset="0"/>
+                            <GradientStop Color="White" Offset="0.5"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Viewbox>
+
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Logos/iwt_small.png"></Image>
+                <Image Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Logos/red_small.png"></Image>
+
+            </Grid>
+        </Grid>
+
+        <svgc:SvgViewbox Source="Logos/red_vector.svg"
+                         Stretch="Fill"
+                         Margin="75, 50, 0, 50"
+                         Grid.Column="2" Grid.Row="0"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Right"/>
+        
     </Grid>
 </Page>

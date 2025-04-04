@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace testWPF.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Form.xaml
+    /// Логика взаимодействия для FinalPage.xaml
     /// </summary>
-    public partial class Form : Page
+    public partial class FinalPage : Page
     {
-        public Form()
+        public FinalPage()
         {
             InitializeComponent();
-        }
-
-        private void ConfirmClick(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new ConfirmationPage());
         }
     }
 }
