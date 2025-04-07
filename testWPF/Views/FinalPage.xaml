@@ -25,16 +25,44 @@
             <Image Source="/Pics/iwt_op_final.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
             <Image Source="/Logos/iwt_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
             <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
-                <Button Width="200" Height="50" Content="Просмотреть PDF-файл"
-                Foreground="#FBB911"
-                BorderBrush="#FBB911"
-                BorderThickness="1"
-                Background="Transparent"
-                FontSize="12"
-                FontFamily="/Fonts/#Montserrat"
-                FontWeight="SemiBold"
-                Grid.Row="2"
-                Cursor="Hand"/>
+                <Button Width="200" Height="50" Cursor="Hand" Click="IWTButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <TextBlock x:Name="textBlock"
+                                           Text="{TemplateBinding Content}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontWeight="{TemplateBinding FontWeight}"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           TextAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#FBB911"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FFD700"/>
+                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Content>Просмотреть PDF-файл</Button.Content>
+                    <Button.Foreground>#FBB911</Button.Foreground>
+                    <Button.BorderBrush>#FBB911</Button.BorderBrush>
+                    <Button.Background>Transparent</Button.Background>
+                    <Button.FontSize>12</Button.FontSize>
+                    <Button.FontFamily>/Fonts/#Montserrat</Button.FontFamily>
+                    <Button.FontWeight>SemiBold</Button.FontWeight>
+                    <Button.BorderThickness>1</Button.BorderThickness>
+                </Button>
             </Viewbox>
 
         </Grid>
@@ -49,16 +77,44 @@
             <Image Source="/Pics/red_op_final.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
             <Image Source="/Logos/red_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
             <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
-                <Button Width="200" Height="50" Content="Просмотреть PDF-файл"
-                Foreground="#FBB911"
-                BorderBrush="#FBB911"
-                BorderThickness="1"
-                Background="Transparent"
-                FontSize="12"
-                FontFamily="/Fonts/#Montserrat"
-                FontWeight="SemiBold"
-                Grid.Row="2"
-                Cursor="Hand"/>
+                <Button Width="200" Height="50" Cursor="Hand" Click="REDButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <TextBlock x:Name="textBlock"
+                                           Text="{TemplateBinding Content}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontWeight="{TemplateBinding FontWeight}"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           TextAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#FBB911"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FFD700"/>
+                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Content>Просмотреть PDF-файл</Button.Content>
+                    <Button.Foreground>#FBB911</Button.Foreground>
+                    <Button.BorderBrush>#FBB911</Button.BorderBrush>
+                    <Button.Background>Transparent</Button.Background>
+                    <Button.FontSize>12</Button.FontSize>
+                    <Button.FontFamily>/Fonts/#Montserrat</Button.FontFamily>
+                    <Button.FontWeight>SemiBold</Button.FontWeight>
+                    <Button.BorderThickness>1</Button.BorderThickness>
+                </Button>
             </Viewbox>
         </Grid>
 

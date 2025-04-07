@@ -15,6 +15,8 @@
     <None Remove="Logos\iwt_vector.svg" />
     <None Remove="Logos\red_small.png" />
     <None Remove="Logos\red_vector.svg" />
+    <None Remove="PDFs\IWT 07.10.22.pdf" />
+    <None Remove="PDFs\RED 07.10.22.pdf" />
     <None Remove="Pics\iwt_op_confirm.png" />
     <None Remove="Pics\iwt_op_final.png" />
     <None Remove="Pics\iwt_op_form.png" />
@@ -37,6 +39,12 @@
     <Resource Include="Logos\iwt_vector.svg" />
     <Resource Include="Logos\red_small.png" />
     <Resource Include="Logos\red_vector.svg" />
+    <Content Include="PDFs\IWT 07.10.22.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PDFs\RED 07.10.22.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Pics\iwt_op_confirm.png" />
     <Resource Include="Pics\iwt_op_final.png" />
     <Resource Include="Pics\iwt_op_form.png" />

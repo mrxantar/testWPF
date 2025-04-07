@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:testWPF.Views"
+      xmlns:helpers="clr-namespace:testWPF.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Form">
@@ -25,16 +26,44 @@
             <Image Source="/Pics/iwt_op_form.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
             <Image Source="/Logos/iwt_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
             <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
-                <Button Width="200" Height="50" Content="Просмотреть PDF-файл"
-                        Foreground="#FBB911"
-                        BorderBrush="#FBB911"
-                        BorderThickness="1"
-                        Background="Transparent"
-                        FontSize="12"
-                        FontFamily="/Fonts/#Montserrat"
-                        FontWeight="SemiBold"
-                        Grid.Row="2"
-                        Cursor="Hand"/>
+                <Button Width="200" Height="50" Cursor="Hand" Click="IWTButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <TextBlock x:Name="textBlock"
+                                           Text="{TemplateBinding Content}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontWeight="{TemplateBinding FontWeight}"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           TextAlignment="Center"/>
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#FBB911"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FFD700"/>
+                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Content>Просмотреть PDF-файл</Button.Content>
+                    <Button.Foreground>#FBB911</Button.Foreground>
+                    <Button.BorderBrush>#FBB911</Button.BorderBrush>
+                    <Button.Background>Transparent</Button.Background>
+                    <Button.FontSize>12</Button.FontSize>
+                    <Button.FontFamily>/Fonts/#Montserrat</Button.FontFamily>
+                    <Button.FontWeight>SemiBold</Button.FontWeight>
+                    <Button.BorderThickness>1</Button.BorderThickness>
+                </Button>
             </Viewbox>
 
         </Grid>
@@ -49,18 +78,45 @@
             <Image Source="/Pics/red_op_form.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
             <Image Source="/Logos/red_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
             <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
-                <Button Width="200" Height="50" Content="Просмотреть PDF-файл"
-                        Foreground="#FBB911"
-                        BorderBrush="#FBB911"
-                        BorderThickness="1"
-                        Background="Transparent"
-                        FontSize="12"
-                        FontFamily="/Fonts/#Montserrat"
-                        FontWeight="SemiBold"
-                        Grid.Row="2"
-                        Cursor="Hand"/>
-            </Viewbox>
+                <Button Width="200" Height="50" Cursor="Hand" Click="REDButton_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <TextBlock x:Name="textBlock"
+                                           Text="{TemplateBinding Content}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontWeight="{TemplateBinding FontWeight}"
+                                           Foreground="{TemplateBinding Foreground}"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           TextAlignment="Center"/>
+                            </Border>
 
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background" Value="#FBB911"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FFD700"/>
+                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Content>Просмотреть PDF-файл</Button.Content>
+                    <Button.Foreground>#FBB911</Button.Foreground>
+                    <Button.BorderBrush>#FBB911</Button.BorderBrush>
+                    <Button.Background>Transparent</Button.Background>
+                    <Button.FontSize>12</Button.FontSize>
+                    <Button.FontFamily>/Fonts/#Montserrat</Button.FontFamily>
+                    <Button.FontWeight>SemiBold</Button.FontWeight>
+                    <Button.BorderThickness>1</Button.BorderThickness>
+                </Button>
+            </Viewbox>
         </Grid>
 
         <Grid Grid.Column="2">
@@ -68,7 +124,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.4*"/>
                     <RowDefinition Height="0.25*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="0.07*"/>
+                    <RowDefinition Height="0.18*"/>
                 </Grid.RowDefinitions>
 
                 <Viewbox Grid.Row="0">
@@ -86,6 +144,7 @@
                         <Run Text="КАТАЛОГ ПРОДУКЦИИ?"/>
                     </TextBlock>
                 </Viewbox>
+                
                 <Viewbox Grid.Row="1">
                     <TextBlock HorizontalAlignment="Center"
                                VerticalAlignment="Center"
@@ -100,13 +159,16 @@
                     </TextBlock>
                 </Viewbox>
 
-                <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="2" Width="Auto">
+                <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Row="2" Width="Auto" Grid.RowSpan="3">
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Width="Auto">
-                        <TextBox Height="40" Text="Фамилия, имя, отчество" 
+                        <TextBox x:Name="NameBox" Height="45"
+                                 helpers:Placeholder.Text="Фамилия, имя, отчество"
                                  Foreground="#7FFFFFFF" FontSize="16" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
                                  BorderBrush="#7FFFFFFF" BorderThickness="0,0,0,2"
                                  Padding="10"
-                                 Margin="0, 0, 0, 30">
+                                 Margin="0, 0, 0, 30"
+                                 PreviewTextInput="NameBox_PreviewTextInput"
+                                 DataObject.Pasting="NameBox_Pasting">
                             <TextBox.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
                                     <GradientStop Color="#7FFFFFFF" Offset="0"/>
@@ -115,11 +177,14 @@
                             </TextBox.Background>
                         </TextBox>
 
-                        <TextBox Height="40" Text="Ваш телефон"
+                        <TextBox x:Name="NumberBox" Height="45"
+                                 helpers:Placeholder.Text="Ваш телефон"
                                  Foreground="#7FFFFFFF" FontSize="16" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
                                  BorderBrush="#7FFFFFFF" BorderThickness="0,0,0,2"
                                  Padding="10"
-                                 Margin="0, 0, 0, 30">
+                                 Margin="0, 0, 0, 30"
+                                 PreviewTextInput="NumberBox_PreviewTextInput"
+                                 DataObject.Pasting="NumberBox_Pasting">
                             <TextBox.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
                                     <GradientStop Color="#7FFFFFFF" Offset="0"/>
@@ -128,11 +193,13 @@
                             </TextBox.Background>
                         </TextBox>
 
-                        <TextBox Height="40" Text="Email"
+                        <TextBox x:Name="EmailBox" Height="45"
+                                 helpers:Placeholder.Text="E-mail"
                                  Foreground="#7FFFFFFF" FontSize="16" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
                                  BorderBrush="#7FFFFFFF" BorderThickness="0,0,0,2"
                                  Padding="10"
-                                 Margin="0, 0, 0, 30">
+                                 Margin="0, 0, 0, 30"
+                                 >
                             <TextBox.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
                                     <GradientStop Color="#7FFFFFFF" Offset="0"/>
@@ -154,8 +221,7 @@
                             <Run Text="политикой конфиденциальности." FontSize="7"/>
                         </TextBlock>
 
-                        <Button Padding="45, 20, 45, 20"
-                                Background="#FBB911"
+                        <Button Background="#FBB911"
                                 Foreground="#141310"
                                 FontFamily="/Fonts/#Montserrat"
                                 FontSize="18"
@@ -164,9 +230,49 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="0, 0, 0, 20" Click="ConfirmClick">
-                            Подтвердить данные
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border"
+                                            Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Padding="45, 20, 45, 20">
+                                        <TextBlock x:Name="textBlock"
+                                                   Text="{TemplateBinding Content}"
+                                                   FontSize="{TemplateBinding FontSize}"
+                                                   FontFamily="{TemplateBinding FontFamily}"
+                                                   FontWeight="{TemplateBinding FontWeight}"
+                                                   Foreground="{TemplateBinding Foreground}"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   TextWrapping="Wrap"
+                                                   TextAlignment="Center"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#FFD700"/>
+                                            <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                            <Button.Content>Подтвердить данные</Button.Content>
                         </Button>
                     </StackPanel>
+                </Viewbox>
+
+                <Viewbox Grid.Row="3">
+                    <TextBlock x:Name="ErrorMessage"
+                               Visibility="Collapsed"
+                               Foreground="Red"
+                               FontFamily="/Fonts/#Montserrat"
+                               FontWeight="Light"
+                               FontSize="10"
+                               TextWrapping="Wrap"
+                               TextAlignment="Center"
+                               Margin="0, 10, 0, 10"/>
                 </Viewbox>
             </Grid>
         </Grid>

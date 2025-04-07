@@ -53,22 +53,47 @@
             </Viewbox>
 
             <Viewbox Grid.Column="0" Grid.Row="2" Margin="0 0 0 25">
-                <Button Width="200" Height="50" Click="ContinueClick">
+                <Button Width="200" Height="50" Click="ContinueClick" Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border Background="{TemplateBinding Background}" BorderBrush="White" BorderThickness="0.5" CornerRadius="25">
-                                <TextBlock HorizontalAlignment="Center" 
-                                               VerticalAlignment="Center"
-                                               TextWrapping="Wrap" 
-                                               TextAlignment="Center" 
-                                               Foreground="LightGray">
-                                        <Run Text="Нажмите на экран," FontFamily="/Fonts/#Montserrat"/>
-                                        <LineBreak />
-                                        <Run Text="чтобы продолжить" FontFamily="/Fonts/#Montserrat"/>
-                                        </TextBlock>
+                            <Border x:Name="border" 
+                        Background="{TemplateBinding Background}" 
+                        BorderBrush="White" 
+                        BorderThickness="0.5" 
+                        CornerRadius="25">
+                                <TextBlock x:Name="textBlock" 
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"
+                               TextWrapping="Wrap" 
+                               TextAlignment="Center" 
+                               Foreground="LightGray">
+                        <Run Text="Нажмите на экран," FontFamily="/Fonts/#Montserrat"/>
+                        <LineBreak />
+                        <Run Text="чтобы продолжить" FontFamily="/Fonts/#Montserrat"/>
+                                </TextBlock>
                             </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="border" Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.2">
+                                                <GradientStop Color="White" Offset="0"/>
+                                                <GradientStop Color="LightGray" Offset="0.5"/>
+                                                <GradientStop Color="White" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="LightGray"/>
+                                </Trigger>
+
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Button.Template>
+
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
                             <GradientStop Color="White" Offset="0"/>
