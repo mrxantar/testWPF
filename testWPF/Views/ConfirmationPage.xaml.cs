@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using testWPF.Helpers;
+using testWPF.ViewModels;
 
 namespace testWPF.Views
 {
@@ -26,32 +27,8 @@ namespace testWPF.Views
         public ConfirmationPage()
         {
             InitializeComponent();
+            DataContext = new ConfirmationViewModel(() => NavigationService?.Navigate(new FinalPage()));
             _digitBoxes = new List<TextBox> { DigitBox1, DigitBox2, DigitBox3 };
-        }
-
-        private void ConfirmCode(object sender, RoutedEventArgs e)
-        {
-            string code = $"{DigitBox1.Text}{DigitBox2.Text}{DigitBox3.Text}";
-
-            if (code == "000")
-            {
-                ErrorMessage.Visibility = Visibility.Collapsed;
-                NavigationService?.Navigate(new FinalPage());
-            }
-            else
-            {
-                ErrorMessage.Text = "Неверный код.";
-                ErrorMessage.Visibility = Visibility.Visible;
-                HighlightCodeBoxes();
-            }
-        }
-
-        private void HighlightCodeBoxes()
-        {
-            var borderBrush = new SolidColorBrush(Colors.Red);
-            DigitBox1.BorderBrush = borderBrush;
-            DigitBox2.BorderBrush = borderBrush;
-            DigitBox3.BorderBrush = borderBrush;
         }
 
         private void DigitBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -76,16 +53,6 @@ namespace testWPF.Views
                     _digitBoxes[index - 1].Focus();
                 }
             }
-        }
-
-        private void IWTButton_Click(object sender, RoutedEventArgs e)
-        {
-            PdfHelper.IWTOpenPdf();
-        }
-
-        private void REDButton_Click(object sender, RoutedEventArgs e)
-        {
-            PdfHelper.REDOpenPdf();
         }
     }
 }

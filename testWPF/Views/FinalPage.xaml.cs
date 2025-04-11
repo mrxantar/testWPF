@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using testWPF.Helpers;
+using testWPF.ViewModels;
 
 namespace testWPF.Views
 {
@@ -22,32 +23,14 @@ namespace testWPF.Views
     /// </summary>
     public partial class FinalPage : Page
     {
-        private DispatcherTimer _timer;
-
         public FinalPage()
         {
             InitializeComponent();
 
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(20);
-            _timer.Tick += Timer_Tick;
-            _timer.Start();
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            _timer.Stop();
-            NavigationService?.Navigate(new MainPage());
-        }
-
-        private void IWTButton_Click(object sender, RoutedEventArgs e)
-        {
-            PdfHelper.IWTOpenPdf();
-        }
-
-        private void REDButton_Click(object sender, RoutedEventArgs e)
-        {
-            PdfHelper.REDOpenPdf();
+            DataContext = new FinalPageViewModel(() =>
+            {
+                NavigationService?.Navigate(new MainPage());
+            });
         }
     }
 }

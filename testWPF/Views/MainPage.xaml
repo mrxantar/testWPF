@@ -35,15 +35,7 @@
             </Grid.RowDefinitions>
 
             <Viewbox Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30">
-                <TextBlock HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Foreground="#FFF3F3F3"
-                       FontFamily="/Fonts/#Montserrat"
-                       FontStyle="Italic"
-                       FontWeight="Bold"
-                       TextWrapping="Wrap"
-                       TextAlignment="Center"
-                       FontSize="36">
+                <TextBlock Style="{StaticResource BigTextStyle}" FontSize="36">
                 <Run Text="ИННОВАЦИОННЫЕ" />
                 <LineBreak/>
                 <Run Text="ОРУЖЕЙНЫЕ" />

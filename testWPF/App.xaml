@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:testWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/PdfButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/BigTextStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/SmallGrayTextStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/BigYellowButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/FormTextBoxStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/CodeTextBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

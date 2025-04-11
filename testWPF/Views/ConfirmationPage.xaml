@@ -27,44 +27,7 @@
             <Image Source="/Pics/iwt_op_confirm.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
             <Image Source="/Logos/iwt_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
             <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
-                <Button Width="200" Height="50" Cursor="Hand" Click="IWTButton_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}">
-                                <TextBlock x:Name="textBlock"
-                                           Text="{TemplateBinding Content}"
-                                           FontSize="{TemplateBinding FontSize}"
-                                           FontFamily="{TemplateBinding FontFamily}"
-                                           FontWeight="{TemplateBinding FontWeight}"
-                                           Foreground="{TemplateBinding Foreground}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           TextAlignment="Center"/>
-                            </Border>
-
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#FBB911"/>
-                                    <Setter TargetName="border" Property="BorderBrush" Value="#FFD700"/>
-                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-
-                    <Button.Content>Просмотреть PDF-файл</Button.Content>
-                    <Button.Foreground>#FBB911</Button.Foreground>
-                    <Button.BorderBrush>#FBB911</Button.BorderBrush>
-                    <Button.Background>Transparent</Button.Background>
-                    <Button.FontSize>12</Button.FontSize>
-                    <Button.FontFamily>/Fonts/#Montserrat</Button.FontFamily>
-                    <Button.FontWeight>SemiBold</Button.FontWeight>
-                    <Button.BorderThickness>1</Button.BorderThickness>
-                </Button>
+                <Button Style="{StaticResource OutlinedPdfButtonStyle}" Content="Просмотреть PDF-файл" Command="{Binding OpenIWTPdfCommand}"/>
             </Viewbox>
         </Grid>
 
@@ -78,44 +41,7 @@
             <Image Source="/Pics/red_op_confirm.png" Grid.Row="0" Grid.RowSpan="3" Stretch="Fill"/>
             <Image Source="/Logos/red_small.png" VerticalAlignment="Top" Grid.Row="0" HorizontalAlignment="Center"/>
             <Viewbox Grid.Row="2" Margin="10, 0, 10, 25">
-                <Button Width="200" Height="50" Cursor="Hand" Click="REDButton_Click">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}">
-                                <TextBlock x:Name="textBlock"
-                                           Text="{TemplateBinding Content}"
-                                           FontSize="{TemplateBinding FontSize}"
-                                           FontFamily="{TemplateBinding FontFamily}"
-                                           FontWeight="{TemplateBinding FontWeight}"
-                                           Foreground="{TemplateBinding Foreground}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           TextAlignment="Center"/>
-                            </Border>
-
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#FBB911"/>
-                                    <Setter TargetName="border" Property="BorderBrush" Value="#FFD700"/>
-                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-
-                    <Button.Content>Просмотреть PDF-файл</Button.Content>
-                    <Button.Foreground>#FBB911</Button.Foreground>
-                    <Button.BorderBrush>#FBB911</Button.BorderBrush>
-                    <Button.Background>Transparent</Button.Background>
-                    <Button.FontSize>12</Button.FontSize>
-                    <Button.FontFamily>/Fonts/#Montserrat</Button.FontFamily>
-                    <Button.FontWeight>SemiBold</Button.FontWeight>
-                    <Button.BorderThickness>1</Button.BorderThickness>
-                </Button>
+                <Button Style="{StaticResource OutlinedPdfButtonStyle}" Content="Просмотреть PDF-файл" Command="{Binding OpenREDPdfCommand}"/>
             </Viewbox>
         </Grid>
 
@@ -133,14 +59,7 @@
             
             <Viewbox Grid.Row="1">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Foreground="#FFF3F3F3"
-                               FontFamily="/Fonts/#Montserrat"
-                               FontStyle="Italic"
-                               FontWeight="Bold"
-                               TextWrapping="Wrap"
-                               TextAlignment="Center"
+                    <TextBlock Style="{StaticResource BigTextStyle}"
                                Margin="10,10,10,10">
                         <Run Text="ПОДТВЕРДИТЕ"/>
                         <LineBreak/>
@@ -149,12 +68,7 @@
                         <Run Text="ТЕЛЕФОНА"/>
                     </TextBlock>
 
-                    <TextBlock HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Foreground="#FF7D7D7D"
-                               FontFamily="/Fonts/#Montserrat"
-                               TextWrapping="Wrap"
-                               TextAlignment="Center"
+                    <TextBlock Style="{StaticResource SmallTextStyle}"
                                Margin="20,0,20,20"
                                FontSize="7">
                         <Run Text="Введите код из смс"/>
@@ -164,53 +78,33 @@
 
             <Viewbox Grid.Row="2">
                 <StackPanel Orientation="Horizontal">
-                    <TextBox x:Name="DigitBox1"  Height="12" MinWidth="12" MaxLength="1" Tag="0"
+                    <TextBox x:Name="DigitBox1" Tag="0"
+                             Text="{Binding Digit1, UpdateSourceTrigger=PropertyChanged}"
                              TextChanged="DigitBox_TextChanged"
                              PreviewKeyDown="DigitBox_PreviewKeyDown"
-                             Foreground="#7FFFFFFF" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
-                             BorderBrush="#7FFFFFFF" BorderThickness="0.1,0.1,0.1,0.1"
-                             Margin="0, 0, 1, 0">
-                        <TextBox.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
-                                <GradientStop Color="#7FFFFFFF" Offset="0"/>
-                                <GradientStop Color="#7FFFFFFF" Offset="1"/>
-                            </LinearGradientBrush>
-                        </TextBox.Background>
-                    </TextBox>
+                             Style="{StaticResource DigitInputBoxStyle}"
+                             BorderBrush="{Binding DigitsBorder}"/>
 
-                    <TextBox x:Name="DigitBox2" Height="12" MinWidth="12" MaxLength="1" Tag="1"
+                    <TextBox x:Name="DigitBox2" Tag="1"
+                             Text="{Binding Digit2, UpdateSourceTrigger=PropertyChanged}"
                              TextChanged="DigitBox_TextChanged"
                              PreviewKeyDown="DigitBox_PreviewKeyDown"
-                             Foreground="#7FFFFFFF" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
-                             BorderBrush="#7FFFFFFF" BorderThickness="0.1,0.1,0.1,0.1"
-                             Margin="0, 0, 1, 0">
-                        <TextBox.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
-                                <GradientStop Color="#7FFFFFFF" Offset="0"/>
-                                <GradientStop Color="#7FFFFFFF" Offset="1"/>
-                            </LinearGradientBrush>
-                        </TextBox.Background>
-                    </TextBox>
+                             Style="{StaticResource DigitInputBoxStyle}"
+                             BorderBrush="{Binding DigitsBorder}"/>
 
-                    <TextBox x:Name="DigitBox3" Height="12" MinWidth="12" MaxLength="1" Tag="2"
+                    <TextBox x:Name="DigitBox3" Tag="2"
+                             Text="{Binding Digit3, UpdateSourceTrigger=PropertyChanged}"
                              TextChanged="DigitBox_TextChanged"
                              PreviewKeyDown="DigitBox_PreviewKeyDown"
-                             Foreground="#7FFFFFFF" FontFamily="/Fonts/#Montserrat" FontStyle="Italic"
-                             BorderBrush="#7FFFFFFF" BorderThickness="0.1,0.1,0.1,0.1"
-                             Margin="0, 0, 0, 0">
-                        <TextBox.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" Opacity="0.05">
-                                <GradientStop Color="#7FFFFFFF" Offset="0"/>
-                                <GradientStop Color="#7FFFFFFF" Offset="1"/>
-                            </LinearGradientBrush>
-                        </TextBox.Background>
-                    </TextBox>
+                             Style="{StaticResource DigitInputBoxStyle}"
+                             BorderBrush="{Binding DigitsBorder}"/>
                 </StackPanel>
             </Viewbox>
 
             <Viewbox Grid.Row="3">
                 <TextBlock x:Name="ErrorMessage"
-                           Visibility="Collapsed"
+                           Visibility="{Binding ErrorVisibility}"
+                           Text="Неверный код"
                            Foreground="Red"
                            FontFamily="/Fonts/#Montserrat"
                            FontWeight="Light"
@@ -221,54 +115,11 @@
             </Viewbox>
 
             <Viewbox Grid.Row="4">
-                <Button Background="#FBB911"
-                        Foreground="#141310"
-                        FontFamily="/Fonts/#Montserrat"
-                        FontSize="18"
-                        FontWeight="Bold"
-                        Cursor="Hand"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Margin="0, 0, 0, 20" Click="ConfirmCode">
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border x:Name="border"
-                                    Background="{TemplateBinding Background}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Padding="45, 20, 45, 20">
-                                <TextBlock x:Name="textBlock"
-                                           Text="{TemplateBinding Content}"
-                                           FontSize="{TemplateBinding FontSize}"
-                                           FontFamily="{TemplateBinding FontFamily}"
-                                           FontWeight="{TemplateBinding FontWeight}"
-                                           Foreground="{TemplateBinding Foreground}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           TextWrapping="Wrap"
-                                           TextAlignment="Center"/>
-                            </Border>
-
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#FFD700"/>
-                                    <Setter TargetName="textBlock" Property="Foreground" Value="White"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Button.Template>
-
-                    <Button.Content>Подтвердить номер</Button.Content>
-                </Button>
+                <Button Style="{StaticResource SolidYellowButtonStyle}" Command="{Binding ConfirmCodeCommand}" Content="Подтвердить номер"/>
             </Viewbox>
 
             <Viewbox Grid.Row="6">
-                <TextBlock HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Foreground="#FF7D7D7D"
-                           FontFamily="/Fonts/#Montserrat"
-                           TextWrapping="Wrap"
-                           TextAlignment="Center"
+                <TextBlock Style="{StaticResource SmallTextStyle}"
                            Margin="20,0,20,20"
                            FontSize="12" 
                            TextDecorations="Underline">
